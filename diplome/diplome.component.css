@@ -1,0 +1,220 @@
+/* GÉNÉRAL */
+* {
+    font-family: 'Poppins', sans-serif; /* Police moderne et élégante */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #74ebd5, #9face6); /* Dégradé moderne pour le fond */
+    color: #2c3e50;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* SECTION PRINCIPALE */
+section {
+    width: 90%;
+    max-width: 1200px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.5s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+section:before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(116, 235, 213, 0.5);
+    border-radius: 50%;
+    z-index: -1;
+    animation: float 6s infinite ease-in-out;
+}
+
+section:after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 150px;
+    height: 150px;
+    background: rgba(159, 172, 230, 0.5);
+    border-radius: 50%;
+    z-index: -1;
+    animation: float 8s infinite ease-in-out reverse;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #34495e;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: slideIn 1.2s ease-out;
+}
+
+/* EXPÉRIENCE (CARTES) */
+.exp {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 30px;
+    background: #f7f9fc;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+    animation: popIn 1s ease-out;
+}
+
+.exp:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+}
+
+.exp-logo {
+    flex: 0 0 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.exp-logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease-in-out;
+}
+
+.exp-logo:hover img {
+    transform: rotate(360deg) scale(1.2);
+}
+
+.exp-info {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.exp-info h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.exp-info h3:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 40px;
+    height: 3px;
+    background: #3498db;
+    animation: growBar 0.8s ease;
+}
+
+.exp-info h4 {
+    font-size: 1.2rem;
+    color: #95a5a6;
+    margin-bottom: 15px;
+}
+
+.exp-desc {
+    font-size: 1rem;
+    color: #7f8c8d;
+    line-height: 1.6;
+}
+
+.exp-desc:hover {
+    color: #2980b9;
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes growBar {
+    from {
+        width: 0;
+    }
+    to {
+        width: 40px;
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .exp {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .exp-logo {
+        margin-bottom: 20px;
+    }
+
+    .exp-info {
+        margin-left: 0;
+    }
+}

@@ -1,0 +1,133 @@
+/* STYLES GÉNÉRAUX */
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: justify;
+}
+
+body {
+  background: #f2f3f5;
+  color: #333;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* CONTAINER PRINCIPAL */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+/* CARTE */
+.card {
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Effet de levée au survol */
+}
+
+/* TITRE */
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* FORMULAIRE */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* GROUPES DE FORMULAIRES */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+input {
+  font-size: 1rem;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3); /* Ajout d'une ombre bleue lors du focus */
+}
+
+input[required] {
+  background-color: #f9f9f9;
+}
+
+/* BOUTON DE CONNEXION */
+button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); /* Effet de zoom sur le bouton */
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* MESSAGE D'ERREUR */
+.text-danger p {
+  font-size: 1rem;
+  color: #dc3545;
+  margin-top: 15px;
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 768px) {
+  .container {
+      padding: 20px;
+  }
+
+  .card {
+      padding: 30px;
+  }
+
+  h1 {
+      font-size: 2rem;
+  }
+
+  .form-group {
+      margin-bottom: 15px;
+  }
+
+  input, button {
+      font-size: 1rem;
+      padding: 10px;
+  }
+}

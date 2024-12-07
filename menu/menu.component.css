@@ -1,0 +1,258 @@
+/* Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Dégradé de fond élégant */
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-size: 400% 400%;
+    animation: gradientShift 10s ease infinite;
+}
+
+/* Animation du fond (dégradé en mouvement) */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(34, 34, 34, 0.8); /* Fond semi-transparent pour la navbar */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Ombre portée douce */
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 30px;
+    transition: all 0.3s ease-out;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: fadeInDown 1s ease-out; /* Animation d'apparition */
+}
+
+/* Animation de la navbar */
+@keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Logo */
+.navbar-brand {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    text-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+.navbar-brand:hover {
+    transform: scale(1.1) rotate(-5deg);
+    color: #ffcc00;
+    text-shadow: 0 10px 25px rgba(255, 255, 255, 0.6); /* Effet lumineux sur le logo */
+}
+
+/* Liens de navigation */
+.navbar-nav {
+    display: flex;
+    gap: 25px;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.2rem;
+    color: #ddd;
+    padding: 12px 25px;
+    border-radius: 25px;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    overflow: hidden;
+}
+
+/* Animation de survol des liens */
+.navbar-nav .nav-link:hover {
+    background: linear-gradient(135deg, #6e7dff, #9c7eff);
+    color: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(110, 125, 255, 0.6);
+    transition: all 0.5s ease;
+}
+
+/* Effet de soulignement animé sous le lien */
+.navbar-nav .nav-link::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: #ffcc00;
+    bottom: 0;
+    left: 0;
+    transition: width 0.4s ease;
+}
+
+.navbar-nav .nav-link:hover::before {
+    width: 100%;
+}
+
+/* Menu burger (mobile) */
+.navbar-toggler {
+    display: none;
+    cursor: pointer;
+    width: 35px;
+    height: 30px;
+    position: relative;
+}
+
+.navbar-toggler span {
+    display: block;
+    width: 100%;
+    height: 5px;
+    background: #fff;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    transition: all 0.4s ease;
+}
+
+.navbar-toggler span:nth-child(1) {
+    top: 0;
+}
+
+.navbar-toggler span:nth-child(2) {
+    top: 12px;
+}
+
+.navbar-toggler span:nth-child(3) {
+    top: 24px;
+}
+
+.navbar-toggler.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 12px;
+}
+
+.navbar-toggler.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggler.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 12px;
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
+    .navbar-nav {
+        display: none;
+        flex-direction: column;
+        background: rgba(34, 34, 34, 0.9);
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 200px;
+        animation: slideInFromRight 0.5s ease-out;
+    }
+
+    .navbar-toggler {
+        display: block;
+    }
+
+    .navbar-toggler.active + .navbar-nav {
+        display: flex;
+    }
+
+    .navbar-nav .nav-link {
+        text-align: center;
+        padding: 15px 20px;
+        border-radius: 10px;
+        transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+        background: rgba(110, 125, 255, 0.3);
+        transform: translateX(10px);
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 2rem;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+    }
+}
+
+/* Animations supplémentaires pour la navbar */
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Amélioration des éléments */
+button, .btn {
+    background: linear-gradient(45deg, #ff6a00, #ffcc00);
+    border: none;
+    color: #fff;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+button:hover, .btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255, 105, 0, 0.6);
+}
+
+/* Effets de texte */
+h1, h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 2s ease-out;
+}
+
+/* Effet de fade-in pour les titres */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
